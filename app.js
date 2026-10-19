@@ -14,4 +14,5 @@ if(root){
   $('ns-toggle').addEventListener('click',()=>playing?stop():start());
   root.querySelectorAll('.ns-types button').forEach(b=>b.addEventListener('click',()=>{type=b.dataset.t;root.querySelectorAll('.ns-types button').forEach(x=>x.classList.toggle('on',x===b));if(playing){stop();start();}}));
   $('ns-vol').addEventListener('input',()=>{if(gain)gain.gain.value=parseInt($('ns-vol').value)/100*0.6;});
+  root.addEventListener('myos:close',()=>{if(playing)stop();});
 }
